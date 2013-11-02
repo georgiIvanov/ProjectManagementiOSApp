@@ -10,4 +10,6 @@
 
 @interface RequestManager : NSObject
 
++(void) createRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary;
+
 @end
