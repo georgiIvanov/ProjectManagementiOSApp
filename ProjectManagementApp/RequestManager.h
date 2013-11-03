@@ -8,8 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ViewControllerDelegate <NSObject>
+
+-(void)handleSuccess:(NSDictionary*)responseData;
+-(void)handleError:(NSError*)error;
+
+@end
+
 @interface RequestManager : NSObject
 
-+(void) createRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary;
++(NSString*)getAuthKey;
++(void)setAuthKey:(NSString*)authKey;
++(NSDate*) getLastDate;
++(void) setLastDate:(NSString*)dateString;
+
++(void) createRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
+             delegate:(id<ViewControllerDelegate>)vcDelegate;
 
 @end

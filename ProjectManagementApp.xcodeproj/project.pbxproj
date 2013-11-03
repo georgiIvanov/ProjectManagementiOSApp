@@ -25,6 +25,8 @@
 		FF118E53182509FD00A75DE7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF118E52182509FD00A75DE7 /* MainStoryboard.storyboard */; };
 		FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E5618250EF400A75DE7 /* LoginViewController.m */; };
 		FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E591825131900A75DE7 /* RequestManager.m */; };
+		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
+		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		FF118E5618250EF400A75DE7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FF118E581825131900A75DE7 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		FF118E591825131900A75DE7 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		FFB4CA11182680F000682568 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		FFB4CA12182680F000682568 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		FFB4CA1518269F9700682568 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		FFB4CA1618269F9700682568 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 		FF118E25182509A600A75DE7 /* ProjectManagementApp */ = {
 			isa = PBXGroup;
 			children = (
+				FFB4CA1418269F7400682568 /* Controllers */,
 				FF118E2E182509A600A75DE7 /* AppDelegate.h */,
 				FF118E2F182509A600A75DE7 /* AppDelegate.m */,
 				FF118E34182509A600A75DE7 /* Images.xcassets */,
@@ -131,10 +138,8 @@
 				FF118E52182509FD00A75DE7 /* MainStoryboard.storyboard */,
 				FF118E26182509A600A75DE7 /* Supporting Files */,
 				FF118E5418250C9D00A75DE7 /* Constants.h */,
-				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
-				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
-				FF118E581825131900A75DE7 /* RequestManager.h */,
-				FF118E591825131900A75DE7 /* RequestManager.m */,
+				FFB4CA1518269F9700682568 /* Utilities.h */,
+				FFB4CA1618269F9700682568 /* Utilities.m */,
 			);
 			path = ProjectManagementApp;
 			sourceTree = "<group>";
@@ -166,6 +171,19 @@
 				FF118E45182509A600A75DE7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FFB4CA1418269F7400682568 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
+				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
+				FF118E581825131900A75DE7 /* RequestManager.h */,
+				FF118E591825131900A75DE7 /* RequestManager.m */,
+				FFB4CA11182680F000682568 /* RegisterViewController.h */,
+				FFB4CA12182680F000682568 /* RegisterViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */,
+				FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */,
 				FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,
+				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,
 				FF118E2C182509A600A75DE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

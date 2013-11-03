@@ -9,9 +9,10 @@
 #import "LoginViewController.h"
 #import "Constants.h"
 #import "RequestManager.h"
+#import "Utilities.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@interface LoginViewController () <UITextFieldDelegate>
+@interface LoginViewController () <UITextFieldDelegate, ViewControllerDelegate>
 
 @end
 
@@ -33,6 +34,7 @@
     
     self.usernameTxt.delegate = self;
     self.passwordTxt.delegate = self;
+    [self.activityIndicator stopAnimating];
     //self.usernameTxt.text = @DOMAIN_ROOT;
 	
     // Do any additional setup after loading the view.
@@ -75,10 +77,10 @@
     
     unsigned char digest[CC_SHA1_DIGEST_LENGTH];
     
-    NSData *stringBytes = [self.passwordTxt.text dataUsingEncoding: NSUTF8StringEncoding]; /* or some other encoding */
+    NSData *stringBytes = [self.passwordTxt.text dataUsingEncoding: NSUTF8StringEncoding];
     if (!CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {
         /* SHA-1 hash has NOT been calculated and stored in 'digest'. */
-        [self error:@"Error with password, please try again."];
+        [Utilities displayError:@"Error with password, please try again."];
         return;
     }
     
@@ -95,6 +97,33 @@
     
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
     [url appendString:@"Account/Login"];
-    [RequestManager createRequest:url httpMethod:@"POST" sentData:sentData];
+    
+    [self.activityIndicator startAnimating];
+    
+    [RequestManager createRequest:url httpMethod:@"PUT" sentData:sentData delegate:self];
+//    [loading removeFromSuperview];
+}
+
+-(void) handleSuccess:(NSDictionary *)responseData
+{
+    if([responseData valueForKey:@"AuthKey"] != nil )
+    {
+        [RequestManager setAuthKey:[responseData valueForKey:@"AuthKey"]];
+        [RequestManager setLastDate:[responseData valueForKey:@"LastLogged"]];
+        [self performSegueWithIdentifier:@"organizationsSegue" sender:self];
+    }
+    
+    [self.activityIndicator stopAnimating];
+
+}
+
+-(void) handleError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message: [error description]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 @end
