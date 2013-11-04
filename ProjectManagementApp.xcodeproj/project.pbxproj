@@ -27,6 +27,9 @@
 		FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E591825131900A75DE7 /* RequestManager.m */; };
 		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
+		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
+		FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */; };
+		FFB8CA5A182853A800BB4473 /* InOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,12 @@
 		FFB4CA12182680F000682568 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FFB4CA1518269F9700682568 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		FFB4CA1618269F9700682568 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		FFB8CA4C1827AA3B00BB4473 /* CreateOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateOrganizationViewController.h; sourceTree = "<group>"; };
+		FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrganizationViewController.m; sourceTree = "<group>"; };
+		FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsTableViewController.h; sourceTree = "<group>"; };
+		FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsTableViewController.m; sourceTree = "<group>"; };
+		FFB8CA58182853A800BB4473 /* InOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOrganizationViewController.h; sourceTree = "<group>"; };
+		FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOrganizationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +139,8 @@
 		FF118E25182509A600A75DE7 /* ProjectManagementApp */ = {
 			isa = PBXGroup;
 			children = (
+				FF118E581825131900A75DE7 /* RequestManager.h */,
+				FF118E591825131900A75DE7 /* RequestManager.m */,
 				FFB4CA1418269F7400682568 /* Controllers */,
 				FF118E2E182509A600A75DE7 /* AppDelegate.h */,
 				FF118E2F182509A600A75DE7 /* AppDelegate.m */,
@@ -178,10 +189,14 @@
 			children = (
 				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
 				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
-				FF118E581825131900A75DE7 /* RequestManager.h */,
-				FF118E591825131900A75DE7 /* RequestManager.m */,
 				FFB4CA11182680F000682568 /* RegisterViewController.h */,
 				FFB4CA12182680F000682568 /* RegisterViewController.m */,
+				FFB8CA4C1827AA3B00BB4473 /* CreateOrganizationViewController.h */,
+				FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */,
+				FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */,
+				FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */,
+				FFB8CA58182853A800BB4473 /* InOrganizationViewController.h */,
+				FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -282,7 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB8CA5A182853A800BB4473 /* InOrganizationViewController.m in Sources */,
+				FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */,
 				FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */,
+				FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */,
 				FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */,
 				FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,

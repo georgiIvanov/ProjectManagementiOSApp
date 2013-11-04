@@ -10,30 +10,14 @@
 
 NSString* _authKey;
 NSDate* _dateLastLogged;
+NSString* _organizationName;
 
 
 @implementation RequestManager
 {
 }
-+(void) setLastDate:(NSString*)dateString
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    //[formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
-    _dateLastLogged = [formatter dateFromString:dateString];
-}
-+(NSDate*) getLastDate
-{
-    return _dateLastLogged;
-}
-+(NSString*)getAuthKey
-{
-    return _authKey;
-}
-+(void)setAuthKey:(NSString*)authKey
-{
-    _authKey = authKey;
-}
+
+#pragma mark Requests
 
 +(void) createRequest:(NSString *)path httpMethod:(NSString*)method sentData:(NSDictionary *)dictionary
              delegate:(id<ViewControllerDelegate>)vcDelegate
@@ -77,6 +61,96 @@ NSDate* _dateLastLogged;
              }
          });
     }];
+}
+
++(void) createAuthenticatedRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
+                          delegate:(id<ViewControllerDelegate>)vcDelegate
+{
+    NSURL* url = [NSURL URLWithString:path];
+    
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:url];
+    
+    [req setHTTPMethod:method];
+    
+    NSData* data = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    
+    [req setHTTPBody: data ];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req addValue:[self getAuthKey] forHTTPHeaderField:@"X-authKey"];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc]init] completionHandler:
+     ^(NSURLResponse *resp, NSData *responseData, NSError *error){
+         NSDictionary* respDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if(error == nil)
+             {
+                 [vcDelegate handleSuccess:respDictionary];
+             }
+             else
+             {
+                 [vcDelegate handleError:error];
+             }
+         });
+     }];
+
+}
+
++(void) createAuthenticatedGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate
+{
+    NSURL* url = [NSURL URLWithString:path];
+    
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:url];
+    
+    [req setHTTPMethod:@"GET"];
+    
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req addValue:[self getAuthKey] forHTTPHeaderField:@"X-authKey"];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc]init] completionHandler:
+     ^(NSURLResponse *resp, NSData *responseData, NSError *error){
+         NSDictionary* respDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if(error == nil)
+             {
+                 [vcDelegate handleSuccess:respDictionary];
+             }
+             else
+             {
+                 [vcDelegate handleError:error];
+             }
+         });
+     }];
+
+}
+
+#pragma mark - StaticVariables
+
++(void) setLastDate:(NSString*)dateString
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //[formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    _dateLastLogged = [formatter dateFromString:dateString];
+}
++(NSDate*) getLastDate
+{
+    return _dateLastLogged;
+}
++(NSString*)getAuthKey
+{
+    return _authKey;
+}
++(void)setAuthKey:(NSString*)authKey
+{
+    _authKey = authKey;
+}
++(NSString*)getOrganizationName
+{
+    return _organizationName;
+}
++(void)setOrganizationName:(NSString *)name
+{
+    _organizationName = name;
 }
 
 @end

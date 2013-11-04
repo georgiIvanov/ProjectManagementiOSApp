@@ -21,8 +21,14 @@
 +(void)setAuthKey:(NSString*)authKey;
 +(NSDate*) getLastDate;
 +(void) setLastDate:(NSString*)dateString;
++(NSString*) getOrganizationName;
++(void) setOrganizationName:(NSString*)name;
+
 
 +(void) createRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
              delegate:(id<ViewControllerDelegate>)vcDelegate;
++(void) createAuthenticatedRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
+             delegate:(id<ViewControllerDelegate>)vcDelegate;
++(void) createAuthenticatedGet:(NSString*)path delegate:(id<ViewControllerDelegate>)vcDelegate;
 
 @end
