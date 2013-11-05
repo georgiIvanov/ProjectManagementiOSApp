@@ -22,14 +22,14 @@
 		FF118E3F182509A600A75DE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF118E23182509A600A75DE7 /* CoreData.framework */; };
 		FF118E47182509A600A75DE7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF118E45182509A600A75DE7 /* InfoPlist.strings */; };
 		FF118E49182509A600A75DE7 /* ProjectManagementAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E48182509A600A75DE7 /* ProjectManagementAppTests.m */; };
-		FF118E53182509FD00A75DE7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF118E52182509FD00A75DE7 /* MainStoryboard.storyboard */; };
 		FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E5618250EF400A75DE7 /* LoginViewController.m */; };
 		FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E591825131900A75DE7 /* RequestManager.m */; };
+		FF6031E81829318700CB2881 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6031E71829318700CB2881 /* MainStoryboard.storyboard */; };
+		FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6031EA182935C700CB2881 /* InOrganizationViewController.m */; };
 		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
 		FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */; };
-		FFB8CA5A182853A800BB4473 /* InOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +61,14 @@
 		FF118E44182509A600A75DE7 /* ProjectManagementAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectManagementAppTests-Info.plist"; sourceTree = "<group>"; };
 		FF118E46182509A600A75DE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF118E48182509A600A75DE7 /* ProjectManagementAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectManagementAppTests.m; sourceTree = "<group>"; };
-		FF118E52182509FD00A75DE7 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FF118E5418250C9D00A75DE7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FF118E5518250EF400A75DE7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FF118E5618250EF400A75DE7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FF118E581825131900A75DE7 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		FF118E591825131900A75DE7 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		FF6031E71829318700CB2881 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FF6031E9182935C700CB2881 /* InOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOrganizationViewController.h; sourceTree = "<group>"; };
+		FF6031EA182935C700CB2881 /* InOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOrganizationViewController.m; sourceTree = "<group>"; };
 		FFB4CA11182680F000682568 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FFB4CA12182680F000682568 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FFB4CA1518269F9700682568 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -75,8 +77,6 @@
 		FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrganizationViewController.m; sourceTree = "<group>"; };
 		FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsTableViewController.h; sourceTree = "<group>"; };
 		FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsTableViewController.m; sourceTree = "<group>"; };
-		FFB8CA58182853A800BB4473 /* InOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOrganizationViewController.h; sourceTree = "<group>"; };
-		FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOrganizationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 				FF118E2F182509A600A75DE7 /* AppDelegate.m */,
 				FF118E34182509A600A75DE7 /* Images.xcassets */,
 				FF118E31182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld */,
-				FF118E52182509FD00A75DE7 /* MainStoryboard.storyboard */,
+				FF6031E71829318700CB2881 /* MainStoryboard.storyboard */,
 				FF118E26182509A600A75DE7 /* Supporting Files */,
 				FF118E5418250C9D00A75DE7 /* Constants.h */,
 				FFB4CA1518269F9700682568 /* Utilities.h */,
@@ -184,19 +184,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FFB4CA1418269F7400682568 /* Controllers */ = {
+		FF6031E318292F8200CB2881 /* Organization */ = {
 			isa = PBXGroup;
 			children = (
-				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
-				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
-				FFB4CA11182680F000682568 /* RegisterViewController.h */,
-				FFB4CA12182680F000682568 /* RegisterViewController.m */,
 				FFB8CA4C1827AA3B00BB4473 /* CreateOrganizationViewController.h */,
 				FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */,
 				FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */,
 				FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */,
-				FFB8CA58182853A800BB4473 /* InOrganizationViewController.h */,
-				FFB8CA59182853A800BB4473 /* InOrganizationViewController.m */,
+				FF6031E9182935C700CB2881 /* InOrganizationViewController.h */,
+				FF6031EA182935C700CB2881 /* InOrganizationViewController.m */,
+			);
+			name = Organization;
+			sourceTree = "<group>";
+		};
+		FFB4CA1418269F7400682568 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF6031E318292F8200CB2881 /* Organization */,
+				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
+				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
+				FFB4CA11182680F000682568 /* RegisterViewController.h */,
+				FFB4CA12182680F000682568 /* RegisterViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -276,7 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF118E53182509FD00A75DE7 /* MainStoryboard.storyboard in Resources */,
+				FF6031E81829318700CB2881 /* MainStoryboard.storyboard in Resources */,
 				FF118E2A182509A600A75DE7 /* InfoPlist.strings in Resources */,
 				FF118E35182509A600A75DE7 /* Images.xcassets in Resources */,
 			);
@@ -297,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB8CA5A182853A800BB4473 /* InOrganizationViewController.m in Sources */,
+				FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */,
 				FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */,
 				FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */,
 				FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */,

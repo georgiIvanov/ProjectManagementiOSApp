@@ -87,9 +87,9 @@
     NSString* name = [[_objects objectAtIndex:indexPath.item] valueForKey:@"Name"];
     [RequestManager setOrganizationName: name];
     
-    InOrganizationViewController* controller = [[InOrganizationViewController alloc] init];
-    [controller setTitle:name];
-    [self.navigationController pushViewController:controller animated:YES];
+//    InOrganizationViewController* controller = [[InOrganizationViewController alloc] init];
+//    [controller setTitle:name];
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

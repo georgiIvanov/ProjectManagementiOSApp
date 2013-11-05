@@ -36,7 +36,9 @@
     self.passwordTxt.delegate = self;
     [self.activityIndicator stopAnimating];
     //self.usernameTxt.text = @DOMAIN_ROOT;
-	
+	self.usernameTxt.text= @"fafa";
+    self.passwordTxt.text=@"fafa";
+    [self loginUser:self.btnLogin ];
     // Do any additional setup after loading the view.
 }
 

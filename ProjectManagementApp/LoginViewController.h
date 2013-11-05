@@ -14,5 +14,6 @@
 - (IBAction)registerUser:(id)sender;
 - (IBAction)loginUser:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
 @end
