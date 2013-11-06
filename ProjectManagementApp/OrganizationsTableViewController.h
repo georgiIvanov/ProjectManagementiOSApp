@@ -11,5 +11,6 @@
 @interface OrganizationsTableViewController : UITableViewController
 - (IBAction)logout:(id)sender;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigation;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewOut;
 
 @end

@@ -26,6 +26,9 @@
 		FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E591825131900A75DE7 /* RequestManager.m */; };
 		FF6031E81829318700CB2881 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6031E71829318700CB2881 /* MainStoryboard.storyboard */; };
 		FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6031EA182935C700CB2881 /* InOrganizationViewController.m */; };
+		FFA2F142182A3423008A1FCB /* InvitationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA2F141182A3423008A1FCB /* InvitationsViewController.m */; };
+		FFA2F145182A4F53008A1FCB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F143182A4F53008A1FCB /* AddressBook.framework */; };
+		FFA2F146182A4F53008A1FCB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */; };
 		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
@@ -69,6 +72,10 @@
 		FF6031E71829318700CB2881 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FF6031E9182935C700CB2881 /* InOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOrganizationViewController.h; sourceTree = "<group>"; };
 		FF6031EA182935C700CB2881 /* InOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOrganizationViewController.m; sourceTree = "<group>"; };
+		FFA2F140182A3423008A1FCB /* InvitationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationsViewController.h; sourceTree = "<group>"; };
+		FFA2F141182A3423008A1FCB /* InvitationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationsViewController.m; sourceTree = "<group>"; };
+		FFA2F143182A4F53008A1FCB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		FFB4CA11182680F000682568 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FFB4CA12182680F000682568 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FFB4CA1518269F9700682568 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -84,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA2F145182A4F53008A1FCB /* AddressBook.framework in Frameworks */,
+				FFA2F146182A4F53008A1FCB /* AddressBookUI.framework in Frameworks */,
 				FF118E20182509A600A75DE7 /* CoreGraphics.framework in Frameworks */,
 				FF118E24182509A600A75DE7 /* CoreData.framework in Frameworks */,
 				FF118E22182509A600A75DE7 /* UIKit.framework in Frameworks */,
@@ -127,6 +136,8 @@
 		FF118E1C182509A600A75DE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFA2F143182A4F53008A1FCB /* AddressBook.framework */,
+				FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */,
 				FF118E1D182509A600A75DE7 /* Foundation.framework */,
 				FF118E1F182509A600A75DE7 /* CoreGraphics.framework */,
 				FF118E21182509A600A75DE7 /* UIKit.framework */,
@@ -193,6 +204,8 @@
 				FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */,
 				FF6031E9182935C700CB2881 /* InOrganizationViewController.h */,
 				FF6031EA182935C700CB2881 /* InOrganizationViewController.m */,
+				FFA2F140182A3423008A1FCB /* InvitationsViewController.h */,
+				FFA2F141182A3423008A1FCB /* InvitationsViewController.m */,
 			);
 			name = Organization;
 			sourceTree = "<group>";
@@ -307,6 +320,7 @@
 			files = (
 				FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */,
 				FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */,
+				FFA2F142182A3423008A1FCB /* InvitationsViewController.m in Sources */,
 				FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */,
 				FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */,
 				FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */,
@@ -436,6 +450,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectManagementApp/ProjectManagementApp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectManagementApp/ProjectManagementApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -449,6 +464,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectManagementApp/ProjectManagementApp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectManagementApp/ProjectManagementApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

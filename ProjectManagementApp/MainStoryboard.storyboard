@@ -68,16 +68,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHZ-kK-6qR">
-                                <rect key="frame" x="123" y="305" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitRegistration:" destination="5SN-6c-0rd" eventType="touchUpInside" id="VjL-K4-0lZ"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="c3Z-Ia-vQK">
                                 <rect key="frame" x="137" y="277" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,7 +75,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="KCG-g7-PAM"/>
+                    <navigationItem key="navigationItem" title="Register" id="KCG-g7-PAM">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="SeR-MQ-swe">
+                            <connections>
+                                <action selector="submitRegistration:" destination="5SN-6c-0rd" id="02u-Pm-AUu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="c3Z-Ia-vQK" id="nEg-PC-cjv"/>
                         <outlet property="emailTxt" destination="3UR-EX-4QG" id="3tR-oD-kE9"/>
@@ -221,6 +217,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navigation" destination="wcs-ur-UDV" id="OaU-Cb-3Im"/>
+                        <outlet property="tableViewOut" destination="wXK-Qs-e6q" id="5Qo-F3-BwG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFQ-7a-cbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,6 +307,9 @@
                                 <state key="normal" title="Invite Person">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2YL-mw-iLU" kind="push" id="NrC-3y-46r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMF-hf-m3q">
                                 <rect key="frame" x="170" y="181" width="130" height="30"/>
@@ -326,7 +326,7 @@
                                         <rect key="frame" x="4" y="0.0" width="273" height="183"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -355,6 +355,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eW8-6r-JvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1636" y="104"/>
+        </scene>
+        <!--Invitations View Controller-->
+        <scene sceneID="R8M-fV-uiK">
+            <objects>
+                <viewController id="2YL-mw-iLU" customClass="InvitationsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="416-10-a3A"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wpe-9W-dCf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="se3-Dm-pJB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hR5-z1-n19">
+                                <rect key="frame" x="248" y="85" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendInvitation:" destination="2YL-mw-iLU" eventType="touchUpInside" id="rgZ-AZ-7BP"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" placeholder="Username or email" translatesAutoresizingMaskIntoConstraints="NO" id="zYi-UO-bhY">
+                                <rect key="frame" x="20" y="78" width="206" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="mGG-Q1-0fU"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A3Z-4v-STF">
+                                <rect key="frame" x="20" y="134" width="280" height="215"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="pT7-nX-BDj">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pT7-nX-BDj" id="IPW-nQ-lM4">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hR5-z1-n19" firstAttribute="leading" secondItem="zYi-UO-bhY" secondAttribute="trailing" constant="22" id="Gxg-FD-kwO"/>
+                            <constraint firstAttribute="trailing" secondItem="A3Z-4v-STF" secondAttribute="trailing" constant="20" id="Mwn-cy-jMC"/>
+                            <constraint firstItem="zYi-UO-bhY" firstAttribute="centerY" secondItem="hR5-z1-n19" secondAttribute="centerY" id="SAL-tU-YrI"/>
+                            <constraint firstItem="A3Z-4v-STF" firstAttribute="leading" secondItem="se3-Dm-pJB" secondAttribute="leading" constant="20" id="VUK-7a-510"/>
+                            <constraint firstItem="zYi-UO-bhY" firstAttribute="top" secondItem="416-10-a3A" secondAttribute="bottom" constant="14" id="cP8-LA-cp4"/>
+                            <constraint firstItem="zYi-UO-bhY" firstAttribute="leading" secondItem="A3Z-4v-STF" secondAttribute="leading" id="ojT-EN-zsE"/>
+                            <constraint firstItem="A3Z-4v-STF" firstAttribute="top" secondItem="zYi-UO-bhY" secondAttribute="bottom" constant="12" id="rV7-gU-xec"/>
+                            <constraint firstItem="Wpe-9W-dCf" firstAttribute="top" secondItem="A3Z-4v-STF" secondAttribute="bottom" constant="219" id="xak-JO-4ZL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="neA-jo-jPc">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="eA4-1N-VA3">
+                            <rect key="frame" x="96" y="7" width="129" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Invite"/>
+                                <segment title="Pending"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="zYi-UO-bhY" id="qba-d6-wJ9"/>
+                        <outlet property="searchDisplayController" destination="HOH-yJ-0cH" id="Lg4-pZ-wAI"/>
+                        <outlet property="tableView" destination="A3Z-4v-STF" id="pMM-vw-inH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyT-g9-kH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="SKC-TJ-swD">
+                    <connections>
+                        <outlet property="delegate" destination="2YL-mw-iLU" id="N8Z-Fg-e47"/>
+                        <outlet property="searchContentsController" destination="2YL-mw-iLU" id="XQH-cB-iDk"/>
+                        <outlet property="searchResultsDataSource" destination="2YL-mw-iLU" id="SaC-GA-CoO"/>
+                        <outlet property="searchResultsDelegate" destination="2YL-mw-iLU" id="YSv-Rz-qWd"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="HOH-yJ-0cH">
+                    <connections>
+                        <outlet property="delegate" destination="2YL-mw-iLU" id="scf-kq-eNI"/>
+                        <outlet property="searchContentsController" destination="2YL-mw-iLU" id="1iN-NO-GKx"/>
+                        <outlet property="searchResultsDataSource" destination="2YL-mw-iLU" id="9p6-Xi-3eM"/>
+                        <outlet property="searchResultsDelegate" destination="2YL-mw-iLU" id="h2O-EP-KU4"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2060" y="-173"/>
         </scene>
         <!--Create Organization View Controller-->
         <scene sceneID="edw-l9-MdR">

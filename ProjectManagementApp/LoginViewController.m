@@ -39,6 +39,10 @@
 	self.usernameTxt.text= @"fafa";
     self.passwordTxt.text=@"fafa";
     [self loginUser:self.btnLogin ];
+    
+    [RequestManager setAuthKey:@""];
+    [RequestManager setOrganizationName:@""];
+
     // Do any additional setup after loading the view.
 }
 
