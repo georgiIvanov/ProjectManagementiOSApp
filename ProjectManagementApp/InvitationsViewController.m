@@ -156,7 +156,7 @@
                               self.searchBar.text, @"InvitedUser",
                               [RequestManager getOrganizationName], @"OrganizationName", nil];
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"Organization/InviteToOrganization"];
+    [url appendString:@"Invitations/InviteToOrganization"];
     
     [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 

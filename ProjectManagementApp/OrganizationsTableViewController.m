@@ -12,7 +12,7 @@
 #import "Utilities.h"
 #import "InOrganizationViewController.h"
 
-@interface OrganizationsTableViewController () <ViewControllerDelegate>
+@interface OrganizationsTableViewController () <ViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -21,19 +21,24 @@
     NSMutableArray* _objects;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _objects = [[NSMutableArray alloc] init];
+    [self.tableViewOut setDelegate:self];
+    [RequestManager setRole: UNDETERMINED_ROLE];
+    
     //self.navigation.backBarButtonItem.title = @"Logout";
 
     // Uncomment the following line to preserve selection between presentations.
@@ -46,6 +51,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self getOrganizations];
+    [self checkForInvitations];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,12 +90,13 @@
 }
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-    NSString* name = [[_objects objectAtIndex:indexPath.item] valueForKey:@"Name"];
+    NSObject* org = [_objects objectAtIndex:indexPath.item];
+    NSString* name = [org valueForKey:@"Name"];
     [RequestManager setOrganizationName: name];
-    
-//    InOrganizationViewController* controller = [[InOrganizationViewController alloc] init];
-//    [controller setTitle:name];
-//    [self.navigationController pushViewController:controller animated:YES];
+    Role r = (Role)[[org valueForKey:@"Role"] integerValue];
+    [RequestManager setRole:r];
+
+    [self callSegue:r];
 }
 
 
@@ -101,10 +108,51 @@
     [RequestManager createAuthenticatedGet:url delegate:self];
 }
 
+-(void)checkForInvitations
+{
+    
+    NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
+    [url appendString:@"Invitations/CheckForInvitations"];
+    
+    [RequestManager createAuthenticatedGet:url delegate:self];
+   
+}
+
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    _objects = [responseData objectForKey:@"Organizations"];
-    [self.tableView reloadData];
+    if([responseData valueForKey:@"Organizations"])
+    {
+        _objects = [responseData objectForKey:@"Organizations"];
+        [self.tableViewOut reloadData];
+      
+        
+    }
+    else if([responseData valueForKey:@"InvitationsCount"])
+    {
+        NSMutableString* title = [[NSMutableString alloc]
+                                  initWithString:[responseData
+                                  valueForKey:@"InvitationsCount"]];
+        
+        if([title compare:@"0"] != NSOrderedSame)
+        {
+            [title appendString:@" New Invitations"];
+            [self.invitationsBtn
+            setTitle:title
+             forState:UIControlStateNormal];
+            [self.invitationsBtn setEnabled:YES];
+        }
+        else
+        {
+            [self.invitationsBtn
+             setTitle:@"No Invitations"
+             forState:UIControlStateNormal];
+            [self.invitationsBtn setEnabled:NO];
+        }
+    }
+    else
+    {
+        [Utilities displayError:[responseData description]];
+    }
 }
 
 -(void)handleError:(NSError *)error
@@ -152,7 +200,17 @@
 */
 
 #pragma mark - Navigation
-
+-(void) callSegue:(Role)role
+{
+    if(role >= 30)
+    {
+        [self performSegueWithIdentifier:@"InOrganizationSegue" sender:self];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"userProfileSegue" sender:self];
+    }
+}
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

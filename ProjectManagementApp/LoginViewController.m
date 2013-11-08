@@ -36,8 +36,8 @@
     self.passwordTxt.delegate = self;
     [self.activityIndicator stopAnimating];
     //self.usernameTxt.text = @DOMAIN_ROOT;
-	self.usernameTxt.text= @"fafa";
-    self.passwordTxt.text=@"fafa";
+	self.usernameTxt.text= @"tata";
+    self.passwordTxt.text=@"tata";
     [self loginUser:self.btnLogin ];
     
     [RequestManager setAuthKey:@""];

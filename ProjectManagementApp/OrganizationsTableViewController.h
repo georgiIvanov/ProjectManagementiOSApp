@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrganizationsTableViewController : UITableViewController
+@interface OrganizationsTableViewController : UIViewController
 - (IBAction)logout:(id)sender;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigation;
 @property (strong, nonatomic) IBOutlet UITableView *tableViewOut;
+@property (weak, nonatomic) IBOutlet UIButton *invitationsBtn;
 
 @end

@@ -26,9 +26,11 @@
 		FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF118E591825131900A75DE7 /* RequestManager.m */; };
 		FF6031E81829318700CB2881 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6031E71829318700CB2881 /* MainStoryboard.storyboard */; };
 		FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6031EA182935C700CB2881 /* InOrganizationViewController.m */; };
+		FF6599B7182D43EB00DA43B9 /* CreateProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6599B6182D43EB00DA43B9 /* CreateProjectViewController.m */; };
 		FFA2F142182A3423008A1FCB /* InvitationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA2F141182A3423008A1FCB /* InvitationsViewController.m */; };
 		FFA2F145182A4F53008A1FCB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F143182A4F53008A1FCB /* AddressBook.framework */; };
 		FFA2F146182A4F53008A1FCB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */; };
+		FFB425C8182BD6BF008F009E /* ManageInvitationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB425C7182BD6BF008F009E /* ManageInvitationsViewController.m */; };
 		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
@@ -72,10 +74,14 @@
 		FF6031E71829318700CB2881 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FF6031E9182935C700CB2881 /* InOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOrganizationViewController.h; sourceTree = "<group>"; };
 		FF6031EA182935C700CB2881 /* InOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOrganizationViewController.m; sourceTree = "<group>"; };
+		FF6599B5182D43EB00DA43B9 /* CreateProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProjectViewController.h; sourceTree = "<group>"; };
+		FF6599B6182D43EB00DA43B9 /* CreateProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProjectViewController.m; sourceTree = "<group>"; };
 		FFA2F140182A3423008A1FCB /* InvitationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationsViewController.h; sourceTree = "<group>"; };
 		FFA2F141182A3423008A1FCB /* InvitationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationsViewController.m; sourceTree = "<group>"; };
 		FFA2F143182A4F53008A1FCB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		FFB425C6182BD6BF008F009E /* ManageInvitationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageInvitationsViewController.h; sourceTree = "<group>"; };
+		FFB425C7182BD6BF008F009E /* ManageInvitationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageInvitationsViewController.m; sourceTree = "<group>"; };
 		FFB4CA11182680F000682568 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FFB4CA12182680F000682568 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FFB4CA1518269F9700682568 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -206,13 +212,25 @@
 				FF6031EA182935C700CB2881 /* InOrganizationViewController.m */,
 				FFA2F140182A3423008A1FCB /* InvitationsViewController.h */,
 				FFA2F141182A3423008A1FCB /* InvitationsViewController.m */,
+				FFB425C6182BD6BF008F009E /* ManageInvitationsViewController.h */,
+				FFB425C7182BD6BF008F009E /* ManageInvitationsViewController.m */,
 			);
 			name = Organization;
+			sourceTree = "<group>";
+		};
+		FF6599B4182D43BF00DA43B9 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				FF6599B5182D43EB00DA43B9 /* CreateProjectViewController.h */,
+				FF6599B6182D43EB00DA43B9 /* CreateProjectViewController.m */,
+			);
+			name = Project;
 			sourceTree = "<group>";
 		};
 		FFB4CA1418269F7400682568 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF6599B4182D43BF00DA43B9 /* Project */,
 				FF6031E318292F8200CB2881 /* Organization */,
 				FF118E5518250EF400A75DE7 /* LoginViewController.h */,
 				FF118E5618250EF400A75DE7 /* LoginViewController.m */,
@@ -322,9 +340,11 @@
 				FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */,
 				FFA2F142182A3423008A1FCB /* InvitationsViewController.m in Sources */,
 				FF118E5A1825131900A75DE7 /* RequestManager.m in Sources */,
+				FFB425C8182BD6BF008F009E /* ManageInvitationsViewController.m in Sources */,
 				FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */,
 				FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */,
 				FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */,
+				FF6599B7182D43EB00DA43B9 /* CreateProjectViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,
 				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,

@@ -11,11 +11,10 @@
 NSString* _authKey;
 NSDate* _dateLastLogged;
 NSString* _organizationName;
+Role _userRole;
 
 
 @implementation RequestManager
-{
-}
 
 #pragma mark Requests
 
@@ -27,25 +26,13 @@ NSString* _organizationName;
     
     NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:url];
     
-    //req.HTTPMethod = method;
+    
     [req setHTTPMethod:method];
     
     NSData* data = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     
-//    NSMutableData *data = [[NSMutableData alloc] init];
-//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-//    [archiver encodeObject:dictionary forKey:@"Username"];
-//    [archiver encodeObject:dictionary forKey:@"PasswordSecret"];
-//    [archiver finishEncoding];
-    
-    /** data is ready now, and you can use it **/
-    
     [req setHTTPBody: data ];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-//    synchronous request
-//    NSData* responceData = [NSURLConnection sendSynchronousRequest:req returningResponse:&returning error:&error];
-    
     
     [NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc]init] completionHandler:
      ^(NSURLResponse *resp, NSData *responseData, NSError *error){
@@ -95,6 +82,38 @@ NSString* _organizationName;
 
 }
 
++(void) createAuthMutableRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
+                          delegate:(id<ViewControllerDelegate>)vcDelegate
+{
+    NSURL* url = [NSURL URLWithString:path];
+    
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:url];
+    
+    [req setHTTPMethod:method];
+    
+    NSData* data = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    
+    [req setHTTPBody: data ];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req addValue:[self getAuthKey] forHTTPHeaderField:@"X-authKey"];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc]init] completionHandler:
+     ^(NSURLResponse *resp, NSData *responseData, NSError *error){
+         NSMutableDictionary* respDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if(error == nil)
+             {
+                 [vcDelegate handleSuccessWithMutableDictionary:respDictionary];
+             }
+             else
+             {
+                 [vcDelegate handleError:error];
+             }
+         });
+     }];
+    
+}
+
 +(void) createAuthenticatedGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate
 {
     NSURL* url = [NSURL URLWithString:path];
@@ -121,6 +140,34 @@ NSString* _organizationName;
          });
      }];
 
+}
+
++(void) createAuthMutableGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate
+{
+    NSURL* url = [NSURL URLWithString:path];
+    
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:url];
+    
+    [req setHTTPMethod:@"GET"];
+    
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req addValue:[self getAuthKey] forHTTPHeaderField:@"X-authKey"];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[[NSOperationQueue alloc]init] completionHandler:
+     ^(NSURLResponse *resp, NSData *responseData, NSError *error){
+         NSMutableDictionary* respDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if(error == nil)
+             {
+                 [vcDelegate handleSuccessWithMutableDictionary:respDictionary];
+             }
+             else
+             {
+                 [vcDelegate handleError:error];
+             }
+         });
+     }];
+    
 }
 
 #pragma mark - StaticVariables
@@ -153,4 +200,12 @@ NSString* _organizationName;
     _organizationName = name;
 }
 
++(void)setRole:(Role)role
+{
+    _userRole = role;
+}
++(Role)getRole
+{
+    return _userRole;
+}
 @end

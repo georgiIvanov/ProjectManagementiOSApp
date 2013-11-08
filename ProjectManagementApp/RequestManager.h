@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 
 @protocol ViewControllerDelegate <NSObject>
 
 -(void)handleSuccess:(NSDictionary*)responseData;
 -(void)handleError:(NSError*)error;
+
+@optional
+-(void)handleSuccessWithMutableDictionary:(NSMutableDictionary*)responseData;
 
 @end
 
@@ -23,12 +27,28 @@
 +(void) setLastDate:(NSString*)dateString;
 +(NSString*) getOrganizationName;
 +(void) setOrganizationName:(NSString*)name;
++(Role) getRole;
++(void) setRole:(Role)role;
 
 
-+(void) createRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
++(void) createRequest:(NSString*)path
+           httpMethod:(NSString*)method
+             sentData:(NSDictionary*)dictionary
              delegate:(id<ViewControllerDelegate>)vcDelegate;
-+(void) createAuthenticatedRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
+
++(void) createAuthenticatedRequest:(NSString*)path
+                        httpMethod:(NSString*)method
+                          sentData:(NSDictionary*)dictionary
              delegate:(id<ViewControllerDelegate>)vcDelegate;
+
 +(void) createAuthenticatedGet:(NSString*)path delegate:(id<ViewControllerDelegate>)vcDelegate;
+
++(void) createAuthMutableGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate;
+
++(void) createAuthMutableRequest:(NSString*)path
+                      httpMethod:(NSString*)method
+                        sentData:(NSDictionary*)dictionary
+                        delegate:(id<ViewControllerDelegate>)vcDelegate;
+
 
 @end
