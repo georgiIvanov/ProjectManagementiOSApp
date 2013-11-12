@@ -11,7 +11,7 @@
 #import "Utilities.h"
 #import "Constants.h"
 
-@interface CreateOrganizationViewController () <ViewControllerDelegate>
+@interface CreateOrganizationViewController () <HttpRequestDelegate>
 
 @end
 

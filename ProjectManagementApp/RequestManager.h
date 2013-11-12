@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 
-@protocol ViewControllerDelegate <NSObject>
+@protocol HttpRequestDelegate <NSObject>
 
 -(void)handleSuccess:(NSDictionary*)responseData;
 -(void)handleError:(NSError*)error;
@@ -34,21 +34,21 @@
 +(void) createRequest:(NSString*)path
            httpMethod:(NSString*)method
              sentData:(NSDictionary*)dictionary
-             delegate:(id<ViewControllerDelegate>)vcDelegate;
+             delegate:(id<HttpRequestDelegate>)vcDelegate;
 
 +(void) createAuthenticatedRequest:(NSString*)path
                         httpMethod:(NSString*)method
                           sentData:(NSDictionary*)dictionary
-             delegate:(id<ViewControllerDelegate>)vcDelegate;
+             delegate:(id<HttpRequestDelegate>)vcDelegate;
 
-+(void) createAuthenticatedGet:(NSString*)path delegate:(id<ViewControllerDelegate>)vcDelegate;
++(void) createAuthenticatedGet:(NSString*)path delegate:(id<HttpRequestDelegate>)vcDelegate;
 
-+(void) createAuthMutableGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate;
++(void) createAuthMutableGet:(NSString *)path delegate:(id<HttpRequestDelegate>)vcDelegate;
 
 +(void) createAuthMutableRequest:(NSString*)path
                       httpMethod:(NSString*)method
                         sentData:(NSDictionary*)dictionary
-                        delegate:(id<ViewControllerDelegate>)vcDelegate;
+                        delegate:(id<HttpRequestDelegate>)vcDelegate;
 
 
 @end

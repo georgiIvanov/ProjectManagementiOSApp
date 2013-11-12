@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "Utilities.h"
 
-@interface ManageInvitationsViewController () <ViewControllerDelegate, UIAlertViewDelegate>
+@interface ManageInvitationsViewController () <HttpRequestDelegate, UIAlertViewDelegate>
 
 @end
 

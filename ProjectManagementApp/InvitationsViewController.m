@@ -13,7 +13,7 @@
 #import <AddressBook/AddressBook.h>
 
 
-@interface InvitationsViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate>
+@interface InvitationsViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate>
 
 @end
 
@@ -86,7 +86,8 @@
     
     // Configure the cell.
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [_filteredContacts objectAtIndex:indexPath.row]];
-    return cell;}
+    return cell;
+}
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {

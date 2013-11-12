@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "Utilities.h"
 
-@interface CreateProjectViewController () <ViewControllerDelegate>
+@interface CreateProjectViewController () <HttpRequestDelegate>
 
 @end
 
@@ -50,17 +50,23 @@
         return;
     }
 
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+
+    NSString* finishDateString = [formatter stringFromDate:self.projectFinishDate.date];
+//    self.projectFinishDate.date
     
     NSDictionary* sentData = [[NSDictionary alloc]
                               initWithObjectsAndKeys:
                               self.projectNameTxt.text, @"Name",
                               self.projectDescriptionTxt.text, @"Description",
-                              self.projectFinishDate.date, @"FinishDate",
+                              finishDateString, @"FinishDate",
+                              [RequestManager getOrganizationName], @"OrganizationName",
                               nil];
     
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
     //todo
-    [url appendString:@"Project/CreateOrganization"];
+    [url appendString:@"Project/CreateProject"];
     
     [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
     
@@ -68,12 +74,19 @@
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    
+    if([responseData valueForKey:@"Created"])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [Utilities displayError:[responseData valueForKey:@"Message"]];
+    }
 }
 
 -(void)handleError:(NSError *)error
 {
-    
+    [Utilities displayError:[error description]];
 }
 
 -(BOOL) fieldsAreValid

@@ -11,11 +11,14 @@
 #import "Constants.h"
 #import "Utilities.h"
 
-@interface InOrganizationViewController () <ViewControllerDelegate>
+@interface InOrganizationViewController () <HttpRequestDelegate>
 
 @end
 
 @implementation InOrganizationViewController
+{
+    BOOL _reloadInformation;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,28 +34,22 @@
     [super viewDidLoad];
     [self recentEvents];
     [self getInformation];
+    _reloadInformation = NO;
     self.navigationItem.title = [RequestManager getOrganizationName];
     
-    [self initViews];	
+    [self initViews];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(!_reloadInformation)
+    {
+        _reloadInformation = YES;
+        return;
+    }
     
-//    int height =self.scrollView.frame.size.height -
-//    self.navItem.frame.size.height;
-//    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 2, height);
-//    
-//    // Generate content for our scroll view using the frame height and width as the reference point
-//    
-//    for (int i =0; i< 2; i++) {
-//        int left = ((self.scrollView.frame.size.width)*i)+20;
-//        UIView *views = [[UIView alloc]
-//                         initWithFrame:CGRectMake(left, 10,(self.scrollView.frame.size.width)-40, self.scrollView.frame.size.height-60)];
-//        
-//        views.backgroundColor=[UIColor yellowColor];
-//        [views setTag:i];
-//        [self.scrollView addSubview:views];
-//
-//    }
-    
-	// Do any additional setup after loading the view.
+    [self recentEvents];
+    [self getInformation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +88,7 @@
 }
 
 - (IBAction)goToEmployees:(id)sender {
-    [Utilities displayError:@"emps"];
+    
 }
 
 -(void) recentEvents

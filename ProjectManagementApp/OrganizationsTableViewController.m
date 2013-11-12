@@ -12,7 +12,7 @@
 #import "Utilities.h"
 #import "InOrganizationViewController.h"
 
-@interface OrganizationsTableViewController () <ViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface OrganizationsTableViewController () <HttpRequestDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
 

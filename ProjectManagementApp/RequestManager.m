@@ -19,7 +19,7 @@ Role _userRole;
 #pragma mark Requests
 
 +(void) createRequest:(NSString *)path httpMethod:(NSString*)method sentData:(NSDictionary *)dictionary
-             delegate:(id<ViewControllerDelegate>)vcDelegate
+             delegate:(id<HttpRequestDelegate>)vcDelegate
             
 {
     NSURL* url = [NSURL URLWithString:path];
@@ -51,7 +51,7 @@ Role _userRole;
 }
 
 +(void) createAuthenticatedRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
-                          delegate:(id<ViewControllerDelegate>)vcDelegate
+                          delegate:(id<HttpRequestDelegate>)vcDelegate
 {
     NSURL* url = [NSURL URLWithString:path];
     
@@ -83,7 +83,7 @@ Role _userRole;
 }
 
 +(void) createAuthMutableRequest:(NSString*)path httpMethod:(NSString*)method sentData:(NSDictionary*)dictionary
-                          delegate:(id<ViewControllerDelegate>)vcDelegate
+                          delegate:(id<HttpRequestDelegate>)vcDelegate
 {
     NSURL* url = [NSURL URLWithString:path];
     
@@ -114,7 +114,7 @@ Role _userRole;
     
 }
 
-+(void) createAuthenticatedGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate
++(void) createAuthenticatedGet:(NSString *)path delegate:(id<HttpRequestDelegate>)vcDelegate
 {
     NSURL* url = [NSURL URLWithString:path];
     
@@ -142,7 +142,7 @@ Role _userRole;
 
 }
 
-+(void) createAuthMutableGet:(NSString *)path delegate:(id<ViewControllerDelegate>)vcDelegate
++(void) createAuthMutableGet:(NSString *)path delegate:(id<HttpRequestDelegate>)vcDelegate
 {
     NSURL* url = [NSURL URLWithString:path];
     

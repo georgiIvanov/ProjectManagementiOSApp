@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Georgi Ivanov. All rights reserved.
 //
 
-#ifndef ProjectManagementApp_Constants_h
-#define ProjectManagementApp_Constants_h
-
 #define DOMAIN_ROOT "https://projectmanagement-4.apphb.com/api/"
 
 static const NSInteger ORGANIZATION_OWNER = 50;
@@ -30,5 +27,3 @@ typedef NS_ENUM(NSInteger, Role){
     Undetermined = UNDETERMINED_ROLE
 };
 
-
-#endif

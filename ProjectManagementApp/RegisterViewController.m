@@ -12,7 +12,7 @@
 #import "RequestManager.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@interface RegisterViewController () <ViewControllerDelegate>
+@interface RegisterViewController () <HttpRequestDelegate>
 
 @end
 

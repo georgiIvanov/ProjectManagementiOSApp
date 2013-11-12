@@ -12,7 +12,7 @@
 #import "Utilities.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@interface LoginViewController () <UITextFieldDelegate, ViewControllerDelegate>
+@interface LoginViewController () <UITextFieldDelegate, HttpRequestDelegate>
 
 @end
 
