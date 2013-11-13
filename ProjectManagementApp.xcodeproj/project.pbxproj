@@ -36,6 +36,7 @@
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
 		FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */; };
 		FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */; };
+		FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsTableViewController.m; sourceTree = "<group>"; };
 		FFC6C27018323FAA00B8A2B3 /* UsersInOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersInOrganizationViewController.h; sourceTree = "<group>"; };
 		FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersInOrganizationViewController.m; sourceTree = "<group>"; };
+		FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminUserProfileViewController.h; sourceTree = "<group>"; };
+		FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminUserProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,8 @@
 			children = (
 				FFC6C27018323FAA00B8A2B3 /* UsersInOrganizationViewController.h */,
 				FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */,
+				FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */,
+				FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				FF6599B7182D43EB00DA43B9 /* CreateProjectViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,
+				FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */,
 				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,
 				FF118E2C182509A600A75DE7 /* main.m in Sources */,
 			);

@@ -60,12 +60,12 @@
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Employees"])
+    if([responseData objectForKey:@"Employees"])
     {
         self.employeesInfoLbl.text = [responseData valueForKey:@"Employees"];
         self.projectsInfoLbl.text = [responseData valueForKey:@"Projects"];
     }
-    else if([responseData valueForKey:@"Events"])
+    else if([responseData objectForKey:@"Events"])
     {
         self.eventsText.text =
         [responseData valueForKey:@"Events"];
@@ -90,6 +90,7 @@
 - (IBAction)goToEmployees:(id)sender {
     
 }
+
 
 -(void) recentEvents
 {

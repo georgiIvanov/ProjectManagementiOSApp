@@ -112,7 +112,7 @@
 
 -(void) handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"AuthKey"] != nil )
+    if([responseData objectForKey:@"AuthKey"] != nil )
     {
         [RequestManager setAuthKey:[responseData valueForKey:@"AuthKey"]];
         [RequestManager setLastDate:[responseData valueForKey:@"LastLogged"]];

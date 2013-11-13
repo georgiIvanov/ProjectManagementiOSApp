@@ -10,6 +10,7 @@
 #import "RequestManager.h"
 #import "Constants.h"
 #import "Utilities.h"
+#import "AdminUserProfileViewController.h"
 
 @interface UsersInOrganizationViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate>
 
@@ -19,6 +20,8 @@
 {
     NSArray* _sections;
     NSDictionary* _rows;
+    NSString* _chosenUsername;
+    AdminUserProfileViewController* _profileController;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,6 +46,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"adminProfileSegue"])
+    {
+        _profileController = (AdminUserProfileViewController*)segue.destinationViewController;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
@@ -76,9 +87,19 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:indexPath];
+    
+    if(_profileController != nil)
+    {
+        _profileController.userName = cell.textLabel.text;
+    }
+}
+
 -(void) handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Keys"])
+    if([responseData objectForKey:@"Keys"])
     {
         _sections = [responseData valueForKey:@"Keys"];
         _rows = [responseData valueForKey:@"Users"];
@@ -92,7 +113,7 @@
 
 -(void) handleError:(NSError *)error
 {
-    
+    [Utilities displayError:[error description]];
 }
 
 -(void) getEmployeesInOrganization

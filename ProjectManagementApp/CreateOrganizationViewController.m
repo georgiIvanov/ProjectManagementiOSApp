@@ -73,7 +73,7 @@
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Name" ] != nil)
+    if([responseData objectForKey:@"Name" ] != nil)
     {
         [Utilities displayAlert:@"Success" message:@"Organization is created"];
         [self.navigationController popViewControllerAnimated:YES];

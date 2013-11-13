@@ -166,12 +166,12 @@
 
 -(void) handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Success"])
+    if([responseData objectForKey:@"Success"])
     {
         [Utilities displayAlert:@"Success!" message:@"Invitation sent."];
         self.searchBar.text = @"";
     }
-    else if([responseData valueForKey:@"Message"])
+    else if([responseData objectForKey:@"Message"])
     {
         [Utilities displayError:[responseData valueForKey:@"Message"]];
     }

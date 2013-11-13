@@ -134,7 +134,7 @@
 
 -(void) handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Invitations"])
+    if([responseData objectForKey:@"Invitations"])
     {
         NSMutableDictionary *mutableDict =
         [responseData mutableCopy];
@@ -142,7 +142,7 @@
         //_invitations = [responseData mutableArrayValueForKey:@"Invitations"];
         [self.tableView reloadData];
     }
-    else if([responseData valueForKey:@"Accepted"])
+    else if([responseData objectForKey:@"Accepted"])
     {
         
     }

@@ -79,7 +79,7 @@
 -(void) handleSuccess:(NSDictionary *)responseData
 {
     [self.activityIndicator stopAnimating];
-    if([responseData valueForKey:@"AuthKey"] != nil )
+    if([responseData objectForKey:@"AuthKey"] != nil )
     {
         [RequestManager setAuthKey:[responseData valueForKey:@"AuthKey"]];
         [RequestManager setLastDate:[responseData valueForKey:@"LastLogged"]];

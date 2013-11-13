@@ -120,14 +120,14 @@
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    if([responseData valueForKey:@"Organizations"])
+    if([responseData objectForKey:@"Organizations"])
     {
         _objects = [responseData objectForKey:@"Organizations"];
         [self.tableViewOut reloadData];
       
         
     }
-    else if([responseData valueForKey:@"InvitationsCount"])
+    else if([responseData objectForKey:@"InvitationsCount"])
     {
         NSMutableString* title = [[NSMutableString alloc]
                                   initWithString:[responseData
