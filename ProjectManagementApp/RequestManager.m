@@ -11,6 +11,7 @@
 NSString* _authKey;
 NSDate* _dateLastLogged;
 NSString* _organizationName;
+NSString* _loginName;
 Role _userRole;
 
 
@@ -207,5 +208,15 @@ Role _userRole;
 +(Role)getRole
 {
     return _userRole;
+}
+
++(void)setLoginName:(NSString*)login
+{
+    _loginName = login;
+}
+
++(NSString*)getLoginName
+{
+    return _loginName;
 }
 @end

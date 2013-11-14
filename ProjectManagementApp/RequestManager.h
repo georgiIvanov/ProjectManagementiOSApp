@@ -27,6 +27,8 @@
 +(void) setLastDate:(NSString*)dateString;
 +(NSString*) getOrganizationName;
 +(void) setOrganizationName:(NSString*)name;
++(NSString*) getLoginName;
++(void) setLoginName:(NSString*)login;
 +(Role) getRole;
 +(void) setRole:(Role)role;
 

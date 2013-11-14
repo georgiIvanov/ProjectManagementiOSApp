@@ -35,6 +35,9 @@
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
 		FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */; };
+		FFBA4F7C1834F55F007AB68C /* PersonalProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */; };
+		FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7E183509DA007AB68C /* InProjectViewController.m */; };
+		FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F8118351737007AB68C /* IssueViewController.m */; };
 		FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */; };
 		FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -92,6 +95,12 @@
 		FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrganizationViewController.m; sourceTree = "<group>"; };
 		FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsTableViewController.h; sourceTree = "<group>"; };
 		FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsTableViewController.m; sourceTree = "<group>"; };
+		FFBA4F7A1834F55F007AB68C /* PersonalProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalProfileViewController.h; sourceTree = "<group>"; };
+		FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalProfileViewController.m; sourceTree = "<group>"; };
+		FFBA4F7D183509DA007AB68C /* InProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InProjectViewController.h; sourceTree = "<group>"; };
+		FFBA4F7E183509DA007AB68C /* InProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InProjectViewController.m; sourceTree = "<group>"; };
+		FFBA4F8018351737007AB68C /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
+		FFBA4F8118351737007AB68C /* IssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueViewController.m; sourceTree = "<group>"; };
 		FFC6C27018323FAA00B8A2B3 /* UsersInOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersInOrganizationViewController.h; sourceTree = "<group>"; };
 		FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersInOrganizationViewController.m; sourceTree = "<group>"; };
 		FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminUserProfileViewController.h; sourceTree = "<group>"; };
@@ -229,6 +238,10 @@
 			children = (
 				FF6599B5182D43EB00DA43B9 /* CreateProjectViewController.h */,
 				FF6599B6182D43EB00DA43B9 /* CreateProjectViewController.m */,
+				FFBA4F7D183509DA007AB68C /* InProjectViewController.h */,
+				FFBA4F7E183509DA007AB68C /* InProjectViewController.m */,
+				FFBA4F8018351737007AB68C /* IssueViewController.h */,
+				FFBA4F8118351737007AB68C /* IssueViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -254,6 +267,8 @@
 				FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */,
 				FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */,
 				FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */,
+				FFBA4F7A1834F55F007AB68C /* PersonalProfileViewController.h */,
+				FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -367,7 +382,10 @@
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,
 				FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */,
+				FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */,
+				FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */,
 				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,
+				FFBA4F7C1834F55F007AB68C /* PersonalProfileViewController.m in Sources */,
 				FF118E2C182509A600A75DE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

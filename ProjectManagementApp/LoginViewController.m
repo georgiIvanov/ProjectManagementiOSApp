@@ -116,6 +116,7 @@
     {
         [RequestManager setAuthKey:[responseData valueForKey:@"AuthKey"]];
         [RequestManager setLastDate:[responseData valueForKey:@"LastLogged"]];
+        [RequestManager setLoginName: [responseData valueForKey:@"Username"]];
         [self performSegueWithIdentifier:@"organizationsSegue" sender:self];
     }
     
