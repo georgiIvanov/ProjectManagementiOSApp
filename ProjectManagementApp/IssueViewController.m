@@ -11,25 +11,17 @@
 #import "Constants.h"
 #import "Utilities.h"
 
-@interface Entry : NSObject
+#import "Entry.h"
 
-@property (weak, nonatomic) NSString* Username;
-@property (weak, nonatomic) NSString* Text;
-
-@end
-
-@implementation Entry
-
-@end
-
-@interface IssueViewController ()<UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate>
+@interface IssueViewController ()<UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, UITextViewDelegate>
 
 @end
 
 @implementation IssueViewController
 {
-    NSArray* _entries;
-    UITextView* _textInput;
+    NSMutableArray* _entries;
+//    UITextView* _textInput;
+    Entry* _writingCell;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +42,10 @@
         self.issueTitle.enabled = YES;
         _entries = [self createOpenIssue];
         [self.tableViewOutlet reloadData];
+    }
+    else
+    {
+        [self getIssue];
     }
 }
 
@@ -78,10 +74,18 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSObject* entry = [_entries objectAtIndex:indexPath.item];
-    UILabel* label = (UILabel*)[cell viewWithTag:1];
+    UILabel* username = (UILabel*)[cell viewWithTag:1];
     UITextView* text = (UITextView*)[cell viewWithTag:2];
-    label.text = [entry valueForKey:@"Username"];
+    UILabel* time = (UILabel*)[cell viewWithTag:3];
+    username.text = [entry valueForKey:@"Username"];
     text.text = [entry valueForKey:@"Text"];
+    time.text = [entry valueForKey:@"Time"];
+    
+    if(indexPath.item == [_entries count] - 1)
+    {
+        text.editable = YES;
+        text.delegate = self;
+    }
     
     return cell;
 }
@@ -99,7 +103,21 @@
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
-    
+    if([responseData objectForKey:@"Posted"])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if([responseData objectForKey:@"Entries"])
+    {
+        _entries = [[NSMutableArray alloc] initWithArray:[responseData valueForKey:@"Entries"]];
+        [self initWritingCell];
+        [_entries addObject:_writingCell];
+        if([responseData objectForKey:@"Title"])
+        {
+            self.issueTitle.text = [responseData valueForKey:@"Title"];
+        }
+        [self.tableViewOutlet reloadData];
+    }
 }
 
 -(void)handleError:(NSError *)error
@@ -108,23 +126,85 @@
 }
 
 - (IBAction)submitAction:(id)sender {
+    
+    UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:[NSIndexPath indexPathForItem:([_entries count] - 1) inSection:0]];
+    UITextView* textView = (UITextView*)[cell viewWithTag:2];
+    
+    if(![self checkInput: textView])
+    {
+        return;
+    }
+    
+    textView.editable = NO;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate* dateNow = [[NSDate alloc] init];
+    NSString* dateString = [formatter stringFromDate:dateNow];
+
+    if(self.IsBeingOpened)
+    {
+        NSDictionary* sentData = [[NSDictionary alloc]
+                                  initWithObjectsAndKeys:
+                                  self.issueTitle.text, @"Title",
+                                  self.projectName, @"ProjectName",
+                                  textView.text, @"Text",
+                                  dateString, @"DatePosted",
+                                  nil];
+        
+        NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
+        
+        [url appendString:@"Issue/PostIssue"];
+        
+        [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
+
+    }
+    else
+    {
+        NSDictionary* sentData = [[NSDictionary alloc]
+                                  initWithObjectsAndKeys:
+                                  [RequestManager getLoginName], @"Username",
+                                  textView.text, @"Text",
+                                  dateString, @"Time",
+                                  self.issueId, @"IssueId",
+                                  nil];
+        
+        NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
+        
+        [url appendString:@"Issue/PostAnswerToIssue"];
+        
+        [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
+
+    }
 }
 
--(NSArray*) createOpenIssue
+-(void) initWritingCell
 {
-//    NSDictionary* openCell = [[NSDictionary alloc] initWithObjectsAndKeys:
-//                             [RequestManager getLoginName] , @"Username",
-//                              @"", @"Text",
-//                              nil];
-    Entry* openCell = [[Entry alloc] init];
-    [openCell setValue:[RequestManager getLoginName] forKey:@"Username"];
-    [openCell setValue:@"type here" forKey:@"Text"];
-    
-    NSArray* array = [[NSArray alloc] initWithObjects:openCell, nil];
+    _writingCell = [[Entry alloc] init];
+    [_writingCell setValue:[RequestManager getLoginName] forKey:@"Username"];
+    [_writingCell setValue:@"type here" forKey:@"Text"];
+    [_writingCell setValue:@"" forKey:@"Time"];
+}
+
+-(NSMutableArray*) createOpenIssue
+{
+    [self initWritingCell];
+    NSMutableArray* array = [[NSMutableArray alloc] initWithObjects:_writingCell, nil];
     return  array;
 }
 
--(BOOL) checkInput
+-(void) getIssue
+{
+    NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
+    [url appendString:@"Issue/GetIssue?issueId="];
+    [url appendString:self.issueId];
+    [url appendString:@"&projectName="];
+    [url appendString:self.projectName];
+    
+    [RequestManager createAuthenticatedGet:url delegate:self];
+}
+
+-(BOOL) checkInput:(UITextView*) textView
 {
     if(self.IsBeingOpened)
     {
@@ -134,10 +214,34 @@
             return NO;
         }
         
-        return YES;
     }
+    
+    if(textView.text.length > 300 || textView.text.length < 2)
+    {
+        [Utilities displayError:@"Message length must be between 2 and 300 symbols."];
+        return NO;
+    }
+
     
     return YES;
 }
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if([_entries count] > 3)
+    {
+        CGPoint point = self.tableViewOutlet.contentOffset;
+        CGFloat offset = 250;
+        point.y += offset;
+        [self.tableViewOutlet setContentOffset:point animated:YES];
+
+    }
+}
+
 @end
 

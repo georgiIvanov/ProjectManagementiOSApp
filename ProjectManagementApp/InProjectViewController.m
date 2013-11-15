@@ -20,9 +20,11 @@
 @implementation InProjectViewController
 {
     NSArray* _sections;
-    NSDictionary* _rows;
+    NSMutableDictionary* _rows;
     
     IssueViewController* _issueController;
+    BOOL _reloadInformation;
+    NSString* _answerIssueId;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,10 +39,15 @@
 {
     [super viewDidLoad];
     _sections = [self createSections];
+
     self.navigationItem.title = self.projectName;
+
+    _rows = [[NSMutableDictionary alloc] init];
     self.tableViewOutlet.delegate = self;
     self.tableViewOutlet.dataSource = self;
-	// Do any additional setup after loading the view.
+    [self getProjectInfo];
+    _reloadInformation = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,12 +56,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    if(!_reloadInformation)
+    {
+        _reloadInformation = YES;
+        return;
+    }
+    
+    [self getProjectInfo];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    _issueController = (IssueViewController*)segue.destinationViewController;
+    _issueController.projectName = self.projectName;
     if([segue.identifier isEqualToString:@"openIssueSegue"])
     {
-        _issueController = (IssueViewController*)segue.destinationViewController;
         _issueController.IsBeingOpened = YES;
+    }
+    else if([segue.identifier isEqualToString:@"answerIssueSegue"])
+    {
+        _issueController.IsBeingOpened = NO;
+        _issueController.issueId = _answerIssueId;
     }
 }
 
@@ -70,8 +94,16 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSArray* arr = [_rows valueForKey: [_sections objectAtIndex:section]];
-    return [arr count];
+    NSString* keySection = [_sections objectAtIndex:section];
+    if([_rows objectForKey:keySection])
+    {
+        NSArray* arr = [_rows valueForKey: keySection];
+        return [arr count];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,14 +117,18 @@
     // Configure the cell.
     NSString* key = [_sections objectAtIndex:indexPath.section];
     NSArray* rowsInSection = [_rows valueForKey:key];
-    cell.textLabel.text =  [[rowsInSection objectAtIndex:indexPath.item] valueForKey:@"Username"] ;
+    cell.textLabel.text =  [[rowsInSection objectAtIndex:indexPath.item] valueForKey:@"Title"] ;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:indexPath];
-    
+    if(indexPath.section == 2)
+    {
+        _answerIssueId = [[[_rows valueForKey:@"Issues"] objectAtIndex:indexPath.item] valueForKey:@"Id"];
+        [self performSegueWithIdentifier:@"answerIssueSegue" sender:self];
+    }
     
 }
 
@@ -104,6 +140,13 @@
 
 -(void) handleSuccess:(NSDictionary *)responseData
 {
+    if([responseData objectForKey:@"Issues"])
+    {
+        NSArray* arr = [responseData valueForKey:@"Issues"];
+        [_rows setValue:arr forKey:@"Issues"];
+    }
+    
+    [self.tableViewOutlet reloadData];
     
 }
 
@@ -118,4 +161,17 @@
     return createdSections;
 }
 
+-(void) getProjectInfo
+{
+    NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
+    [url appendString:@"Project/GetProjectInformation?projectName="];
+    [url appendString:self.projectName];
+    
+    [RequestManager createAuthenticatedGet:url delegate:self];
+
+}
+
+- (IBAction)openIssueAction:(id)sender {
+    [self performSegueWithIdentifier:@"openIssueSegue" sender:self];
+}
 @end

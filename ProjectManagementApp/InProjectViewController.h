@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) NSString* projectName;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
+- (IBAction)openIssueAction:(id)sender;
 
 @end

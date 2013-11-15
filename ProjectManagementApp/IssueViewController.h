@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface IssueViewController : UIViewController
+@property (weak, nonatomic) NSString* projectName;
+@property (weak, nonatomic) NSString* issueId;
 @property (weak, nonatomic) IBOutlet UITextField *issueTitle;
 - (IBAction)submitAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
