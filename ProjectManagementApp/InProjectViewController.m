@@ -12,6 +12,7 @@
 #import "Utilities.h"
 
 #import "IssueViewController.h"
+#import "ReadNoteViewController.h"
 
 @interface InProjectViewController ()<UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate>
 
@@ -23,8 +24,9 @@
     NSMutableDictionary* _rows;
     
     IssueViewController* _issueController;
+    ReadNoteViewController* _readNoteController;
     BOOL _reloadInformation;
-    NSString* _answerIssueId;
+    NSString* _entryId;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,14 +41,16 @@
 {
     [super viewDidLoad];
     _sections = [self createSections];
-
+    [RequestManager setProjectName:self.projectName];
     self.navigationItem.title = self.projectName;
 
     _rows = [[NSMutableDictionary alloc] init];
     self.tableViewOutlet.delegate = self;
     self.tableViewOutlet.dataSource = self;
     [self getProjectInfo];
+    [self checkPermissions];
     _reloadInformation = NO;
+    
     
 }
 
@@ -69,16 +73,24 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    _issueController = (IssueViewController*)segue.destinationViewController;
-    _issueController.projectName = self.projectName;
+    
     if([segue.identifier isEqualToString:@"openIssueSegue"])
     {
+        _issueController = (IssueViewController*)segue.destinationViewController;
+        _issueController.projectName = self.projectName;
         _issueController.IsBeingOpened = YES;
     }
     else if([segue.identifier isEqualToString:@"answerIssueSegue"])
     {
+        _issueController = (IssueViewController*)segue.destinationViewController;
+        _issueController.projectName = self.projectName;
         _issueController.IsBeingOpened = NO;
-        _issueController.issueId = _answerIssueId;
+        _issueController.issueId = _entryId;
+    }
+    else if([segue.identifier isEqualToString:@"readNoteSegue"])
+    {
+        _readNoteController = (ReadNoteViewController*)segue.destinationViewController;
+        _readNoteController.noteId = _entryId;
     }
 }
 
@@ -123,13 +135,20 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:indexPath];
     if(indexPath.section == 2)
     {
-        _answerIssueId = [[[_rows valueForKey:@"Issues"] objectAtIndex:indexPath.item] valueForKey:@"Id"];
+        _entryId = [[[_rows valueForKey:@"Issues"] objectAtIndex:indexPath.item] valueForKey:@"Id"];
         [self performSegueWithIdentifier:@"answerIssueSegue" sender:self];
     }
-    
+    else if(indexPath.section == 1)
+    {
+        _entryId = [[[_rows valueForKey:@"Notes"] objectAtIndex:indexPath.item] valueForKey:@"Id"];
+        [self performSegueWithIdentifier:@"readNoteSegue" sender:self];
+    }
+    else if(indexPath.section == 0)
+    {
+        
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,6 +163,7 @@
     {
         NSArray* arr = [responseData valueForKey:@"Issues"];
         [_rows setValue:arr forKey:@"Issues"];
+        [_rows setValue:[responseData valueForKey:@"Notes"] forKey:@"Notes"];
     }
     
     [self.tableViewOutlet reloadData];
@@ -164,14 +184,29 @@
 -(void) getProjectInfo
 {
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"Project/GetProjectInformation?projectName="];
-    [url appendString:self.projectName];
+    [url appendString:@"Project/GetProjectInformation"];
     
-    [RequestManager createAuthenticatedGet:url delegate:self];
+    NSDictionary* sentData = [[NSDictionary alloc] initWithObjectsAndKeys:self.projectName, @"ProjectName", nil];
+    
+    [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 
 }
 
 - (IBAction)openIssueAction:(id)sender {
     [self performSegueWithIdentifier:@"openIssueSegue" sender:self];
+}
+
+- (IBAction)createNoteAction:(id)sender {
+    [self performSegueWithIdentifier:@"createNoteSegue" sender:self];
+}
+
+-(void)checkPermissions
+{
+    if([RequestManager getRole] >= PROJECT_MANAGER)
+    {
+        self.assignReportBtn.hidden = NO;
+        self.createTaskBtn.hidden = NO;
+        self.createNoteBtn.hidden = NO;
+    }
 }
 @end

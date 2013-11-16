@@ -13,6 +13,7 @@ NSDate* _dateLastLogged;
 NSString* _organizationName;
 NSString* _loginName;
 Role _userRole;
+NSString* _projectName;
 
 
 @implementation RequestManager
@@ -218,5 +219,15 @@ Role _userRole;
 +(NSString*)getLoginName
 {
     return _loginName;
+}
+
++(void)setProjectName:(NSString *)name
+{
+    _projectName = name;
+}
+
++(NSString*)getProjectName
+{
+    return _projectName;
 }
 @end

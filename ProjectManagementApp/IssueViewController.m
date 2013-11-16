@@ -196,12 +196,14 @@
 -(void) getIssue
 {
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"Issue/GetIssue?issueId="];
-    [url appendString:self.issueId];
-    [url appendString:@"&projectName="];
-    [url appendString:self.projectName];
+    [url appendString:@"Issue/GetIssue"];
     
-    [RequestManager createAuthenticatedGet:url delegate:self];
+        NSDictionary* sentData = [[NSDictionary alloc]
+                                  initWithObjectsAndKeys:
+                                  self.issueId, @"IssueId",
+                                  self.projectName, @"ProjectName"
+                                  , nil];
+    [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 }
 
 -(BOOL) checkInput:(UITextView*) textView

@@ -13,5 +13,12 @@
 @property (weak, nonatomic) NSString* projectName;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
 - (IBAction)openIssueAction:(id)sender;
+- (IBAction)createNoteAction:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *assignReportBtn;
+@property (weak, nonatomic) IBOutlet UIButton *createTaskBtn;
+@property (weak, nonatomic) IBOutlet UIButton *createNoteBtn;
+
 
 @end

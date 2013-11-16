@@ -39,6 +39,8 @@
 		FFBA4F7C1834F55F007AB68C /* PersonalProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */; };
 		FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7E183509DA007AB68C /* InProjectViewController.m */; };
 		FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F8118351737007AB68C /* IssueViewController.m */; };
+		FFBFF241183790BA003C6CCD /* NoteCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBFF240183790BA003C6CCD /* NoteCreateViewController.m */; };
+		FFBFF2441837A57A003C6CCD /* ReadNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */; };
 		FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */; };
 		FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -104,6 +106,10 @@
 		FFBA4F7E183509DA007AB68C /* InProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InProjectViewController.m; sourceTree = "<group>"; };
 		FFBA4F8018351737007AB68C /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
 		FFBA4F8118351737007AB68C /* IssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueViewController.m; sourceTree = "<group>"; };
+		FFBFF23F183790BA003C6CCD /* NoteCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCreateViewController.h; sourceTree = "<group>"; };
+		FFBFF240183790BA003C6CCD /* NoteCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCreateViewController.m; sourceTree = "<group>"; };
+		FFBFF2421837A57A003C6CCD /* ReadNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadNoteViewController.h; sourceTree = "<group>"; };
+		FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadNoteViewController.m; sourceTree = "<group>"; };
 		FFC6C27018323FAA00B8A2B3 /* UsersInOrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersInOrganizationViewController.h; sourceTree = "<group>"; };
 		FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersInOrganizationViewController.m; sourceTree = "<group>"; };
 		FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminUserProfileViewController.h; sourceTree = "<group>"; };
@@ -246,6 +252,10 @@
 				FFBA4F7E183509DA007AB68C /* InProjectViewController.m */,
 				FFBA4F8018351737007AB68C /* IssueViewController.h */,
 				FFBA4F8118351737007AB68C /* IssueViewController.m */,
+				FFBFF23F183790BA003C6CCD /* NoteCreateViewController.h */,
+				FFBFF240183790BA003C6CCD /* NoteCreateViewController.m */,
+				FFBFF2421837A57A003C6CCD /* ReadNoteViewController.h */,
+				FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -391,7 +401,9 @@
 				FFB425C8182BD6BF008F009E /* ManageInvitationsViewController.m in Sources */,
 				FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */,
 				FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */,
+				FFBFF2441837A57A003C6CCD /* ReadNoteViewController.m in Sources */,
 				FF118E5718250EF400A75DE7 /* LoginViewController.m in Sources */,
+				FFBFF241183790BA003C6CCD /* NoteCreateViewController.m in Sources */,
 				FF6599B7182D43EB00DA43B9 /* CreateProjectViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,

@@ -29,6 +29,8 @@
 +(void) setOrganizationName:(NSString*)name;
 +(NSString*) getLoginName;
 +(void) setLoginName:(NSString*)login;
++(NSString*) getProjectName;
++(void) setProjectName:(NSString*)name;
 +(Role) getRole;
 +(void) setRole:(Role)role;
 
