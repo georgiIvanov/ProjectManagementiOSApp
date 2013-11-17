@@ -44,6 +44,7 @@
 		FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */; };
 		FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */; };
 		FFD1F6181838DCB400BB46CA /* UserRole.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD1F6171838DCB400BB46CA /* UserRole.m */; };
+		FFD1F61B183985E600BB46CA /* TaskCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD1F61A183985E600BB46CA /* TaskCreateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminUserProfileViewController.m; sourceTree = "<group>"; };
 		FFD1F6161838DCB400BB46CA /* UserRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRole.h; sourceTree = "<group>"; };
 		FFD1F6171838DCB400BB46CA /* UserRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRole.m; sourceTree = "<group>"; };
+		FFD1F619183985E600BB46CA /* TaskCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCreateViewController.h; sourceTree = "<group>"; };
+		FFD1F61A183985E600BB46CA /* TaskCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,8 @@
 				FFBFF240183790BA003C6CCD /* NoteCreateViewController.m */,
 				FFBFF2421837A57A003C6CCD /* ReadNoteViewController.h */,
 				FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */,
+				FFD1F619183985E600BB46CA /* TaskCreateViewController.h */,
+				FFD1F61A183985E600BB46CA /* TaskCreateViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */,
 				FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */,
 				FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */,
+				FFD1F61B183985E600BB46CA /* TaskCreateViewController.m in Sources */,
 				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,
 				FFBA4F7C1834F55F007AB68C /* PersonalProfileViewController.m in Sources */,
 				FF118E2C182509A600A75DE7 /* main.m in Sources */,
