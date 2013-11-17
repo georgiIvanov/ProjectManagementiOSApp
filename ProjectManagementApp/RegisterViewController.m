@@ -83,7 +83,7 @@
     {
         [RequestManager setAuthKey:[responseData valueForKey:@"AuthKey"]];
         [RequestManager setLastDate:[responseData valueForKey:@"LastLogged"]];
-        
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {

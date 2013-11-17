@@ -36,7 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getEmployeesInOrganization];
+    if(_profileController == nil)
+    {
+        [self getEmployeesInOrganization];
+    }
     self.tableViewOutlet.delegate = self;
     self.tableViewOutlet.dataSource = self;
 	// Do any additional setup after loading the view.
@@ -46,6 +49,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(_profileController != nil)
+    {
+        [self getEmployeesInOrganization];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -43,6 +43,7 @@
 		FFBFF2441837A57A003C6CCD /* ReadNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */; };
 		FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */; };
 		FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */; };
+		FFD1F6181838DCB400BB46CA /* UserRole.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD1F6171838DCB400BB46CA /* UserRole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		FFC6C27118323FAB00B8A2B3 /* UsersInOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersInOrganizationViewController.m; sourceTree = "<group>"; };
 		FFC6C3021832A25D00B8A2B3 /* AdminUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminUserProfileViewController.h; sourceTree = "<group>"; };
 		FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminUserProfileViewController.m; sourceTree = "<group>"; };
+		FFD1F6161838DCB400BB46CA /* UserRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRole.h; sourceTree = "<group>"; };
+		FFD1F6171838DCB400BB46CA /* UserRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRole.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +268,8 @@
 			children = (
 				FFB20C8F18362C03004F584F /* Entry.h */,
 				FFB20C9018362C03004F584F /* Entry.m */,
+				FFD1F6161838DCB400BB46CA /* UserRole.h */,
+				FFD1F6171838DCB400BB46CA /* UserRole.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */,
+				FFD1F6181838DCB400BB46CA /* UserRole.m in Sources */,
 				FFB20C9118362C03004F584F /* Entry.m in Sources */,
 				FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */,
 				FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */,

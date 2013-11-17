@@ -14,5 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOutlet;
 - (IBAction)switchPressed:(id)sender;
+- (IBAction)makePMPressed:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *rolesPicker;
+
 
 @end

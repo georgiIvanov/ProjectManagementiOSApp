@@ -47,8 +47,7 @@
     _rows = [[NSMutableDictionary alloc] init];
     self.tableViewOutlet.delegate = self;
     self.tableViewOutlet.dataSource = self;
-    [self getProjectInfo];
-    [self checkPermissions];
+    [self getProjectInfo];	
     _reloadInformation = NO;
     
     
@@ -164,6 +163,9 @@
         NSArray* arr = [responseData valueForKey:@"Issues"];
         [_rows setValue:arr forKey:@"Issues"];
         [_rows setValue:[responseData valueForKey:@"Notes"] forKey:@"Notes"];
+        Role role =[[responseData valueForKey:@"UserRoleInProject"] integerValue];
+        [RequestManager setRole:role];
+        [self checkPermissions];
     }
     
     [self.tableViewOutlet reloadData];
