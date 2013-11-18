@@ -30,6 +30,7 @@
 		FFA2F142182A3423008A1FCB /* InvitationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA2F141182A3423008A1FCB /* InvitationsViewController.m */; };
 		FFA2F145182A4F53008A1FCB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F143182A4F53008A1FCB /* AddressBook.framework */; };
 		FFA2F146182A4F53008A1FCB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */; };
+		FFB1BC5E183A4AA00068A869 /* AllTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB1BC5D183A4AA00068A869 /* AllTasksViewController.m */; };
 		FFB20C9118362C03004F584F /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB20C9018362C03004F584F /* Entry.m */; };
 		FFB425C8182BD6BF008F009E /* ManageInvitationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB425C7182BD6BF008F009E /* ManageInvitationsViewController.m */; };
 		FFB4CA13182680F000682568 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA12182680F000682568 /* RegisterViewController.m */; };
@@ -90,6 +91,8 @@
 		FFA2F141182A3423008A1FCB /* InvitationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationsViewController.m; sourceTree = "<group>"; };
 		FFA2F143182A4F53008A1FCB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		FFA2F144182A4F53008A1FCB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		FFB1BC5C183A4AA00068A869 /* AllTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTasksViewController.h; sourceTree = "<group>"; };
+		FFB1BC5D183A4AA00068A869 /* AllTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTasksViewController.m; sourceTree = "<group>"; };
 		FFB20C8F18362C03004F584F /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		FFB20C9018362C03004F584F /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		FFB425C6182BD6BF008F009E /* ManageInvitationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageInvitationsViewController.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				FFBFF2431837A57A003C6CCD /* ReadNoteViewController.m */,
 				FFD1F619183985E600BB46CA /* TaskCreateViewController.h */,
 				FFD1F61A183985E600BB46CA /* TaskCreateViewController.m */,
+				FFB1BC5C183A4AA00068A869 /* AllTasksViewController.h */,
+				FFB1BC5D183A4AA00068A869 /* AllTasksViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6031EB182935C700CB2881 /* InOrganizationViewController.m in Sources */,
+				FFB1BC5E183A4AA00068A869 /* AllTasksViewController.m in Sources */,
 				FFD1F6181838DCB400BB46CA /* UserRole.m in Sources */,
 				FFB20C9118362C03004F584F /* Entry.m in Sources */,
 				FFC6C27218323FAB00B8A2B3 /* UsersInOrganizationViewController.m in Sources */,

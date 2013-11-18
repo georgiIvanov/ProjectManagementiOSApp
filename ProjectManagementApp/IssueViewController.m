@@ -92,7 +92,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:indexPath];
+//    UITableViewCell* cell = [self.tableViewOutlet cellForRowAtIndexPath:indexPath];
     
 //    if(_projectController != nil)
 //    {

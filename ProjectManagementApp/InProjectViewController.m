@@ -146,7 +146,7 @@
     }
     else if(indexPath.section == 0)
     {
-        
+        [self performSegueWithIdentifier:@"allTasksSegue" sender:self];
     }
 }
 
@@ -160,8 +160,10 @@
 {
     if([responseData objectForKey:@"Issues"])
     {
-        NSArray* arr = [responseData valueForKey:@"Issues"];
-        [_rows setValue:arr forKey:@"Issues"];
+        NSObject* tasks = [responseData valueForKey:@"Tasks"];
+        NSArray* arr = [[NSArray alloc] initWithObjects:tasks, nil];
+        [_rows setValue:arr forKey:@"Tasks"];
+        [_rows setValue:[responseData valueForKey:@"Issues"] forKey:@"Issues"];
         [_rows setValue:[responseData valueForKey:@"Notes"] forKey:@"Notes"];
         Role role =[[responseData valueForKey:@"UserRoleInProject"] integerValue];
         [RequestManager setRole:role];
