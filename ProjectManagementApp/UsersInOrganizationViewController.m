@@ -130,10 +130,11 @@
 -(void) getEmployeesInOrganization
 {
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"User/GetAllUsersInOrganization?organizationname="];
-    [url appendString:[RequestManager getOrganizationName]];
+    [url appendString:@"User/AllUsersInOrganization"];
+
+    NSDictionary* sentData = [[NSDictionary alloc] initWithObjectsAndKeys:[RequestManager getOrganizationName], @"OrganizationName", nil];
     
-    [RequestManager createAuthenticatedGet:url delegate:self];
+    [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 }
 
 @end

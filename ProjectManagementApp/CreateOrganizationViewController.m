@@ -62,7 +62,6 @@
                               initWithObjectsAndKeys:
                               self.txtOrganizationName.text, @"Name",
                               self.txtDescription.text, @"Description",
-                              self.txtOrganizationVision.text, @"Vision",
                               self.txtMotto.text, @"Motto",nil];
     
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];

@@ -95,19 +95,23 @@
 -(void) recentEvents
 {
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"Organization/RecentEvents?organizationname="];
-    [url appendString:[RequestManager getOrganizationName]];
+    [url appendString:@"Organization/RecentEvents"];
     
-    [RequestManager createAuthenticatedGet:url delegate:self];
+    NSDictionary* sentData = [[NSDictionary alloc] initWithObjectsAndKeys:
+    [RequestManager getOrganizationName], @"OrganizationName", nil];
+    
+    [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 }
 
 -(void) getInformation
 {
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
-    [url appendString:@"Organization/GetFullInfo?organizationname="];
-    [url appendString:[RequestManager getOrganizationName]];
+    [url appendString:@"Organization/FullInfo"];
     
-    [RequestManager createAuthenticatedGet:url delegate:self];
+    NSDictionary* sentData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              [RequestManager getOrganizationName], @"OrganizationName", nil];
+    
+    [RequestManager createAuthenticatedRequest:url httpMethod:@"POST" sentData:sentData delegate:self];
 }
 
 -(void)initViews
