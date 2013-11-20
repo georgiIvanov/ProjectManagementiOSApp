@@ -40,10 +40,14 @@
     self.passwordTxt.text=@"tata";
     [self loginUser:self.btnLogin ];
     
+    // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [RequestManager setAuthKey:@""];
     [RequestManager setOrganizationName:@""];
-
-    // Do any additional setup after loading the view.
+    [RequestManager setProjectName:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +94,6 @@
         return;
     }
     
-//    NSData* data = [[NSData alloc] initWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
 
     NSString* data = [[[[NSData alloc] initWithBytes:digest length:CC_SHA1_DIGEST_LENGTH] description]
                         stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -99,7 +102,6 @@
     NSDictionary* sentData = [[NSDictionary alloc]
                               initWithObjectsAndKeys:self.usernameTxt.text, userNameOrEmail,
                             hash, @"PasswordSecret", nil];
-//    NSData* sendingData = [NSData alloc]
     
     NSMutableString* url = [[NSMutableString alloc] initWithString:@DOMAIN_ROOT];
     [url appendString:@"Account/Login"];
@@ -107,7 +109,6 @@
     [self.activityIndicator startAnimating];
     
     [RequestManager createRequest:url httpMethod:@"PUT" sentData:sentData delegate:self];
-//    [loading removeFromSuperview];
 }
 
 -(void) handleSuccess:(NSDictionary *)responseData

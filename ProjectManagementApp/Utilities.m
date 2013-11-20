@@ -7,6 +7,7 @@
 //
 
 #import "Utilities.h"
+#import "RequestManager.h"
 
 @implementation Utilities
 
@@ -30,6 +31,18 @@
                                           otherButtonTitles:nil];
     
     [alert show];
+}
+
++(BOOL)checkIfInProject
+{
+    if([[RequestManager getOrganizationName] length] != 0 &&
+       [[RequestManager getProjectName] length] != 0 &&
+       [[RequestManager getAuthKey] length] != 0)
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

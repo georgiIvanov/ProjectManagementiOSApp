@@ -19,6 +19,7 @@
 @implementation OrganizationsTableViewController
 {
     NSMutableArray* _objects;
+    BOOL _reloadInformation;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,7 +38,10 @@
     [super viewDidLoad];
     _objects = [[NSMutableArray alloc] init];
     [self.tableViewOut setDelegate:self];
-    [RequestManager setRole: UNDETERMINED_ROLE];
+    [self getOrganizations];
+    [self checkForInvitations];
+    _reloadInformation = NO;
+    [RequestManager setRole: Undetermined];
     
     //self.navigation.backBarButtonItem.title = @"Logout";
 
@@ -50,6 +54,11 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    if(!_reloadInformation)
+    {
+        _reloadInformation = YES;
+        return;
+    }
     [self getOrganizations];
     [self checkForInvitations];
 }

@@ -37,6 +37,8 @@
 		FFB4CA1718269F9700682568 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4CA1618269F9700682568 /* Utilities.m */; };
 		FFB8CA4E1827AA3B00BB4473 /* CreateOrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */; };
 		FFB8CA541827FA4B00BB4473 /* OrganizationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */; };
+		FFB9BE5F183CBF9500607FB4 /* LocalNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB9BE5E183CBF9500607FB4 /* LocalNoteViewController.m */; };
+		FFB9BE65183CDA8200607FB4 /* LocalNote.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB9BE64183CDA8200607FB4 /* LocalNote.m */; };
 		FFBA4F7C1834F55F007AB68C /* PersonalProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */; };
 		FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F7E183509DA007AB68C /* InProjectViewController.m */; };
 		FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBA4F8118351737007AB68C /* IssueViewController.m */; };
@@ -105,6 +107,10 @@
 		FFB8CA4D1827AA3B00BB4473 /* CreateOrganizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrganizationViewController.m; sourceTree = "<group>"; };
 		FFB8CA521827FA4B00BB4473 /* OrganizationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsTableViewController.h; sourceTree = "<group>"; };
 		FFB8CA531827FA4B00BB4473 /* OrganizationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsTableViewController.m; sourceTree = "<group>"; };
+		FFB9BE5D183CBF9500607FB4 /* LocalNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNoteViewController.h; sourceTree = "<group>"; };
+		FFB9BE5E183CBF9500607FB4 /* LocalNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNoteViewController.m; sourceTree = "<group>"; };
+		FFB9BE63183CDA8200607FB4 /* LocalNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalNote.h; path = ../LocalNote.h; sourceTree = "<group>"; };
+		FFB9BE64183CDA8200607FB4 /* LocalNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalNote.m; path = ../LocalNote.m; sourceTree = "<group>"; };
 		FFBA4F7A1834F55F007AB68C /* PersonalProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalProfileViewController.h; sourceTree = "<group>"; };
 		FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalProfileViewController.m; sourceTree = "<group>"; };
 		FFBA4F7D183509DA007AB68C /* InProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InProjectViewController.h; sourceTree = "<group>"; };
@@ -276,6 +282,8 @@
 		FFB20C8E18362BE7004F584F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFB9BE63183CDA8200607FB4 /* LocalNote.h */,
+				FFB9BE64183CDA8200607FB4 /* LocalNote.m */,
 				FFB20C8F18362C03004F584F /* Entry.h */,
 				FFB20C9018362C03004F584F /* Entry.m */,
 				FFD1F6161838DCB400BB46CA /* UserRole.h */,
@@ -307,6 +315,8 @@
 				FFC6C3031832A25D00B8A2B3 /* AdminUserProfileViewController.m */,
 				FFBA4F7A1834F55F007AB68C /* PersonalProfileViewController.h */,
 				FFBA4F7B1834F55F007AB68C /* PersonalProfileViewController.m */,
+				FFB9BE5D183CBF9500607FB4 /* LocalNoteViewController.h */,
+				FFB9BE5E183CBF9500607FB4 /* LocalNoteViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -424,8 +434,10 @@
 				FF6599B7182D43EB00DA43B9 /* CreateProjectViewController.m in Sources */,
 				FF118E33182509A600A75DE7 /* ProjectManagementApp.xcdatamodeld in Sources */,
 				FF118E30182509A600A75DE7 /* AppDelegate.m in Sources */,
+				FFB9BE65183CDA8200607FB4 /* LocalNote.m in Sources */,
 				FFC6C3041832A25D00B8A2B3 /* AdminUserProfileViewController.m in Sources */,
 				FFBA4F7F183509DA007AB68C /* InProjectViewController.m in Sources */,
+				FFB9BE5F183CBF9500607FB4 /* LocalNoteViewController.m in Sources */,
 				FFBA4F8218351737007AB68C /* IssueViewController.m in Sources */,
 				FFD1F61B183985E600BB46CA /* TaskCreateViewController.m in Sources */,
 				FFB4CA1718269F9700682568 /* Utilities.m in Sources */,

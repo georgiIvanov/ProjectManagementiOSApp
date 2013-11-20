@@ -163,6 +163,16 @@
                                     <action selector="loginUser:" destination="PRh-WU-lHV" eventType="touchUpInside" id="mI9-Lb-pYj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDw-pK-zAZ">
+                                <rect key="frame" x="33" y="251" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Local Notes">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XEB-db-GYp" kind="push" identifier="localNoteSegue" id="bq2-FQ-iNj"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gP-Fe-2kU">
                                 <rect key="frame" x="224" y="193" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -205,6 +215,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHr-S9-1BZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="568" y="-19"/>
+        </scene>
+        <!--Local Note View Controller-->
+        <scene sceneID="dEW-ja-Maf">
+            <objects>
+                <viewController id="XEB-db-GYp" customClass="LocalNoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kqZ-uW-hdk"/>
+                        <viewControllerLayoutGuide type="bottom" id="A8P-94-hug"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="omE-te-lEh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sv5-lT-6yR">
+                                <rect key="frame" x="-3" y="310" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-WP-tTH">
+                                <rect key="frame" x="20" y="102" width="280" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-ll-GxN">
+                                <rect key="frame" x="126" y="73" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAL-BV-XPh">
+                                <rect key="frame" x="20" y="69" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit Issue">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitIssueAction:" destination="XEB-db-GYp" eventType="touchUpInside" id="E75-1O-xbB"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe4-g8-o6D">
+                                <rect key="frame" x="205" y="69" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit Note">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitNoteAction:" destination="XEB-db-GYp" eventType="touchUpInside" id="mXC-5S-unl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mzG-Lz-jVF">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local note title" minimumFontSize="17" id="Udv-Ri-Bvq">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="AOG-fE-saR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="localNoteText" destination="oIl-WP-tTH" id="Eos-8S-T7U"/>
+                        <outlet property="localNoteTitle" destination="Udv-Ri-Bvq" id="mI5-FR-c7n"/>
+                        <outlet property="saveBtn" destination="AOG-fE-saR" id="jaA-Eh-oBQ"/>
+                        <outlet property="savedLocalNotes" destination="Sv5-lT-6yR" id="qSx-IH-CrC"/>
+                        <outlet property="submitIssueBtn" destination="fAL-BV-XPh" id="D5T-6b-Ded"/>
+                        <outlet property="submitNoteBtn" destination="Pe4-g8-o6D" id="0k9-Or-PQr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZB-yW-dco" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="552"/>
         </scene>
         <!--Organizations Table View Controller - Your Organizations-->
         <scene sceneID="RSY-IY-sno">
@@ -339,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpY-Gd-YeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="740"/>
+            <point key="canvasLocation" x="117" y="1276"/>
         </scene>
         <!--Read Note View Controller-->
         <scene sceneID="uaY-EB-awu">
@@ -385,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZF-eK-bb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="1418"/>
+            <point key="canvasLocation" x="117" y="1954"/>
         </scene>
         <!--Task Create View Controller - Create Task-->
         <scene sceneID="h8O-61-6Lo">
@@ -443,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtB-Tx-eiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="1692"/>
+            <point key="canvasLocation" x="559" y="2228"/>
         </scene>
         <!--All Tasks View Controller-->
         <scene sceneID="EWf-Za-sDH">
@@ -517,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6N-iF-UAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="827" y="1692"/>
+            <point key="canvasLocation" x="967" y="2228"/>
         </scene>
         <!--In Project View Controller-->
         <scene sceneID="JIz-Kb-yAN">
@@ -532,7 +618,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-ua-3eS">
-                                <rect key="frame" x="32" y="97" width="97" height="30"/>
+                                <rect key="frame" x="32" y="77" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Assign Report">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -546,17 +632,17 @@
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7V-Lc-eKE">
-                                <rect key="frame" x="40" y="135" width="81" height="30"/>
+                                <rect key="frame" x="40" y="115" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Task">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UkR-Yk-gTt" kind="push" id="5bT-Vd-fuD"/>
+                                    <segue destination="UkR-Yk-gTt" kind="push" identifier="createTaskSegue" id="5bT-Vd-fuD"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-n0-4LV">
-                                <rect key="frame" x="40" y="166" width="83" height="30"/>
+                                <rect key="frame" x="39" y="153" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Note">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -566,7 +652,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALM-Pa-Hzf">
-                                <rect key="frame" x="205" y="142" width="78" height="30"/>
+                                <rect key="frame" x="205" y="115" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <string key="title">Open Issue
@@ -575,6 +661,16 @@
                                 </state>
                                 <connections>
                                     <action selector="openIssueAction:" destination="d5r-de-63m" eventType="touchUpInside" id="Lfs-EZ-SmV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R36-9a-HNA">
+                                <rect key="frame" x="180" y="153" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit Local Note">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XEB-db-GYp" kind="push" identifier="localNoteSegue" id="kUi-ze-t8S"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfX-4F-egI">
@@ -616,7 +712,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3M-Ic-ZRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="996"/>
+            <point key="canvasLocation" x="1075" y="1532"/>
         </scene>
         <!--Issue View Controller-->
         <scene sceneID="CGV-SB-BGi">
@@ -726,11 +822,14 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPS-Ru-Oxy">
-                                <rect key="frame" x="20" y="101" width="86" height="30"/>
+                                <rect key="frame" x="20" y="101" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reports Due">
+                                <state key="normal" title="Local Notes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="XEB-db-GYp" kind="push" identifier="localNoteSegue" id="DEv-LV-NbA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1311,7 +1410,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="kUi-ze-t8S"/>
         <segue reference="Krq-Hl-lIl"/>
-        <segue reference="8tH-zI-OaE"/>
+        <segue reference="O8t-2b-3Qe"/>
     </inferredMetricsTieBreakers>
 </document>

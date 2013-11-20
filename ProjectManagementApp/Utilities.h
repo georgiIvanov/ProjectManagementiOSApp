@@ -11,4 +11,5 @@
 @interface Utilities : NSObject
 +(void)displayError:(NSString*)errorMsg;
 +(void)displayAlert:(NSString*)title message:(NSString*)message;
++(BOOL)checkIfInProject;
 @end

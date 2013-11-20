@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+NSManagedObjectContext* context;
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -20,6 +22,7 @@
 //    // Override point for customization after application launch.
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
+    context = self.managedObjectContext;
     return YES;
 }
 
@@ -63,6 +66,11 @@
             abort();
         } 
     }
+}
+
++(NSManagedObjectContext *)getContext
+{
+    return context;
 }
 
 #pragma mark - Core Data stack
