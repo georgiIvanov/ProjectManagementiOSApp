@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitIssueBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitNoteBtn;
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *savedLocalNotes;
 - (IBAction)submitIssueAction:(id)sender;
 - (IBAction)submitNoteAction:(id)sender;
+- (IBAction)saveNoteAction:(id)sender;
+- (IBAction)deleteAction:(id)sender;
 
 
 @end
