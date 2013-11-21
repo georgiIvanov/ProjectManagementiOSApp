@@ -18,6 +18,7 @@
 
 @implementation AdminUserProfileViewController
 {
+    BOOL _awaitingRequest;
     NSArray* _projects;
     NSArray* _roles;
     NSInteger _currentRole;
@@ -43,7 +44,7 @@
     self.tableViewOutlet.dataSource = self;
     self.rolesPicker.delegate = self;
     self.rolesPicker.dataSource = self;
-    
+    _awaitingRequest = NO;
     self.navigationItem.title = self.userName;
 	// Do any additional setup after loading the view.
 }
@@ -131,7 +132,7 @@
         [self.tableViewOutlet reloadData];
         _currentRole = [[responseData valueForKey:@"Role"] integerValue];
         [self selectAppropriatePickRow];
-    }
+    }	
     else if([responseData objectForKey:@"Removed"])
     {
         
@@ -145,7 +146,7 @@
         [self getAdminUserProfile];
         _lastPMPushed.enabled = YES;
     }
-   
+    _awaitingRequest = NO;
 }
 
 -(void) handleError:(NSError *)error
@@ -197,6 +198,11 @@
 
 - (IBAction)switchPressed:(id)sender {
     
+    if(_awaitingRequest)
+    {
+        return;
+    }
+    _awaitingRequest = YES;
     UISwitch* switchControl = (UISwitch*)sender;
     
     UITableViewCell *cell = (UITableViewCell *)[[[sender superview] superview] superview];
@@ -220,6 +226,11 @@
 
 - (IBAction)makePMPressed:(id)sender
 {
+    if(_awaitingRequest)
+    {
+        return;
+    }
+    _awaitingRequest = YES;
     UIButton* button = (UIButton*)sender;
     _lastPMPushed = button;
     _lastPMPushed.enabled = NO;
